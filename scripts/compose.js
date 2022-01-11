@@ -6,7 +6,7 @@ const dedent = require('dedent')
 const root = process.cwd()
 
 const getAuthors = () => {
-  const authorPath = path.join(root, 'data', 'authors')
+  const authorPath = path.join(root, 'data', 'author')
   const authorList = fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
   return authorList
 }
@@ -65,7 +65,7 @@ inquirer
       choices: ['mdx', 'md'],
     },
     {
-      name: 'authors',
+      name: 'author',
       message: 'Choose authors:',
       type: 'checkbox',
       choices: getAuthors,
