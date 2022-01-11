@@ -10,14 +10,12 @@ import { Toc } from 'types/Toc'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkFootnotes from 'remark-footnotes'
-import remarkMath from 'remark-math'
 import remarkCodeTitles from './remark-code-title'
 import remarkTocHeadings from './remark-toc-headings'
 import remarkImgToJsx from './remark-img-to-jsx'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 
@@ -72,14 +70,12 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
         remarkGfm,
         remarkCodeTitles,
         [remarkFootnotes, { inlineNotes: true }],
-        remarkMath,
         remarkImgToJsx,
       ]
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
         rehypeAutolinkHeadings,
-        rehypeKatex,
         [
           rehypeCitation,
           { bibliography: frontmatter?.bibliography, path: path.join(root, 'data') },
