@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, frontMatter }: Props) {
-  const { name, avatar, occupation, company, email, twitter } = frontMatter
+  const { name, avatar, occupation, pronouns, company, email, twitter } = frontMatter
 
   return (
     <>
@@ -24,7 +24,10 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
             height="192px"
             className="w-48 h-48 rounded-full"
           />
-          <h1 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{name}</h1>
+          <div className="pt-4 pb-2 flex space-x-2 items-center text-2xl font-display">
+            <h1 className="font-semibold leading-8 tracking-tight">{name}</h1>
+            <p className="opacity-80 font-extralight">({pronouns})</p>
+          </div>
           <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
           <div className="text-gray-500 dark:text-gray-400">{company}</div>
           <div className="flex pt-6 space-x-3">

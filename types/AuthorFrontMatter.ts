@@ -3,6 +3,7 @@ export type AuthorFrontMatter = {
   name: string
   avatar: string
   occupation: string
+  pronouns: string
   company: string
   email: string
   twitter: string
