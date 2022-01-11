@@ -38,12 +38,10 @@ export function dateSortDesc(a: string, b: string) {
   return 0
 }
 
-export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | string[]) {
-  const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
-  const mdPath = path.join(root, 'data', type, `${slug}.md`)
-  const source = fs.existsSync(mdxPath)
-    ? fs.readFileSync(mdxPath, 'utf8')
-    : fs.readFileSync(mdPath, 'utf8')
+export async function getFileBySlug<T>(slug: string | string[]) {
+  const lastSlug = slug[slug.length - 1]
+  const mdxPath = `${path.join(root, 'data', ...slug)}.mdx`
+  const source = fs.readFileSync(mdxPath, 'utf8')
 
   // https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
   if (process.platform === 'win32') {
@@ -98,8 +96,8 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
     toc,
     frontMatter: {
       readingTime: readingTime(code),
-      slug: slug || null,
-      fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
+      slug: lastSlug || null,
+      fileName: `${lastSlug}.mdx`,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
     },
