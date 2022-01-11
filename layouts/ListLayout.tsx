@@ -4,6 +4,8 @@ import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from 'types/PostFrontMatter'
+import * as Typo from '@/components/Typography'
+
 interface Props {
   posts: PostFrontMatter[]
   title: string
@@ -26,9 +28,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     <>
       <div className="divide-y">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
+          <Typo.Title>{title}</Typo.Title>
           <div className="relative max-w-lg">
             <input
               aria-label="Search articles"

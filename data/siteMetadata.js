@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'The Guild of Artists',
   author: '@guildofartists',
-  headerTitle: 'The Guild of Artists Blog',
+  headerTitle: 'The Guild of Artists',
   description: 'A blog for the wider community of independent artists',
   language: 'en-us',
   theme: 'dark', // system, dark or light
