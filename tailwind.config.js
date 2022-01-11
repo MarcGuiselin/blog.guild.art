@@ -20,7 +20,9 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        display: ['Raleway', 'sans-serif'],
+        body: ['Atkinson Hyperlegible', 'sans-serif'],
+        sans: ['Atkinson Hyperlegible', 'sans-serif'],
       },
       colors: {
         primary: colors.teal,
