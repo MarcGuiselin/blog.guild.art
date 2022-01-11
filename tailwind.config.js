@@ -28,6 +28,13 @@ module.exports = {
         primary: colors.teal,
         //@ts-ignore
         gray: colors.neutral, // TODO: Remove ts-ignore after tw types gets updated to v3
+        'prim-dark': '#0d001b',
+        onyx: {
+          500: '#A49CAF',
+          700: '#3A3344',
+          800: '#2B2731',
+          900: '#1F1C24',
+        },
       },
       typography: (theme) => ({
         DEFAULT: {
