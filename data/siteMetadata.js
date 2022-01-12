@@ -4,7 +4,6 @@ const siteMetadata = {
   headerTitle: 'The Guild of Artists',
   description: 'A blog for the wider community of independent artists',
   language: 'en-us',
-  theme: 'dark', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   siteRepo: '',
   siteLogo: '/static/images/logo.png',
