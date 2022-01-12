@@ -15,7 +15,7 @@ interface Props {
 
 const LayoutWrapper = ({ children }: Props) => {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <PageBackground />
       <PageBackground bottom />
       <SectionContainer>
