@@ -27,14 +27,16 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
         <div>
           <header>
             <div className="pb-10 space-y-1 text-center border-b border-gray-200 dark:border-onyx-700">
-              <dl>
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date)}</time>
-                  </dd>
-                </div>
-              </dl>
+              {date && (
+                <dl>
+                  <div>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <time dateTime={date}>{formatDate(date)}</time>
+                    </dd>
+                  </div>
+                </dl>
+              )}
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
