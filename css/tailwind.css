@@ -40,3 +40,7 @@ input:-webkit-autofill:focus {
     #01e5b4 100%
   );
 }
+
+.bg-striped {
+  background: repeating-linear-gradient(-45deg, #000, #000 12px, #fff 0, #fff 24px);
+}
