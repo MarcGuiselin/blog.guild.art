@@ -25,7 +25,7 @@ module.exports = {
         sans: ['Atkinson Hyperlegible', 'sans-serif'],
       },
       colors: {
-        primary: colors.teal,
+        primary: colors.violet,
         //@ts-ignore
         gray: colors.neutral, // TODO: Remove ts-ignore after tw types gets updated to v3
         'prim-dark': '#0d001b',
