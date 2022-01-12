@@ -16,17 +16,13 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <div className="items-start space-y-2">
-        <div className="bg-onyx-800 max-w-max mx-auto rounded-lg shadow-lg divide-y-2 divide-onyx-700 px-6">
+        <div className="bg-slate-50 dark:bg-onyx-800 max-w-max mx-auto rounded-lg shadow-lg divide-y-2 divide-slate-200 dark:divide-onyx-700 px-6">
           <div className="flex flex-col items-center mt-4 pt-8 pb-6 space-y-4">
             <div className="relative w-32 h-32">
-              <Image
-                src={avatar}
-                alt="avatar"
-                width="128px"
-                height="128px"
-                className="w-32 h-32 rounded-full shadow-lg z-10"
-              />
-              <div className="absolute inset-0 bg-rainbow blur-xl rounded-full opacity-40 rotate-45" />
+              <div className="absolute inset-0 z-10 shadow-lg rounded-full overflow-hidden">
+                <Image src={avatar} alt="avatar" width="128px" height="128px" />
+              </div>
+              <div className="absolute -inset-1 bg-rainbow blur-md rounded-full opacity-30 rotate-45" />
             </div>
             <div className="flex flex-col items-center space-y-2">
               <div className="pb-2 flex space-x-2 items-center text-2xl font-display">
