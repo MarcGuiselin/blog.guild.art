@@ -32,6 +32,7 @@ export default function remarkImgToJsx() {
               { type: 'mdxJsxAttribute', name: 'src', value: imageNode.url },
               { type: 'mdxJsxAttribute', name: 'width', value: dimensions.width },
               { type: 'mdxJsxAttribute', name: 'height', value: dimensions.height },
+              { type: 'mdxJsxAttribute', name: 'className', value: 'rounded-lg' },
             ])
 
           // Change node type from p to div to avoid nesting error
