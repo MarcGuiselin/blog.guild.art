@@ -1,4 +1,4 @@
-import Link from '@/components/Link'
+import LinkTo from '@/components/LinkTo'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
@@ -52,22 +52,14 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && (
                   <div className="pt-4 xl:pt-8">
-                    <Link
-                      href={`/blog/${prev.slug}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      &larr; {prev.title}
-                    </Link>
+                    <LinkTo href={`/blog/${prev.slug}`} back>
+                      {prev.title}
+                    </LinkTo>
                   </div>
                 )}
                 {next && (
                   <div className="pt-4 xl:pt-8">
-                    <Link
-                      href={`/blog/${next.slug}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      {next.title} &rarr;
-                    </Link>
+                    <LinkTo href={`/blog/${next.slug}`}>{next.title}</LinkTo>
                   </div>
                 )}
               </div>

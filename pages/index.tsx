@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import LinkTo from '@/components/LinkTo'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -62,13 +63,9 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read "${title}"`}
-                        >
-                          Read more &rarr;
-                        </Link>
+                        <LinkTo href={`/blog/${slug}`} aria-label={`Read "${title}"`}>
+                          Read more
+                        </LinkTo>
                       </div>
                     </div>
                   </div>
@@ -80,13 +77,9 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
-          </Link>
+          <LinkTo href="/blog" aria-label="all posts">
+            All Posts
+          </LinkTo>
         </div>
       )}
       {siteMetadata.newsletter.provider !== '' && (

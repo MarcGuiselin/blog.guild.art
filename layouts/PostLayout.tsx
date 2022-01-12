@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import LinkTo from '@/components/LinkTo'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
@@ -161,12 +162,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 )}
               </div>
               <div className="pt-4 xl:pt-8">
-                <Link
-                  href="/blog"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                >
-                  &larr; Back to the blog
-                </Link>
+                <LinkTo href="/blog" back>
+                  Back to the blog
+                </LinkTo>
               </div>
             </footer>
           </div>

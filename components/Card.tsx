@@ -1,5 +1,6 @@
 import Image from './Image'
 import Link from './Link'
+import LinkTo from './LinkTo'
 
 const Card = ({ title, description, imgSrc, href }) => (
   <div className="p-4 md:w-1/2 md" style={{ maxWidth: '544px' }}>
@@ -40,13 +41,9 @@ const Card = ({ title, description, imgSrc, href }) => (
         </h2>
         <p className="mb-3 prose text-gray-500 max-w-none dark:text-gray-400">{description}</p>
         {href && (
-          <Link
-            href={href}
-            className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label={`Link to ${title}`}
-          >
-            Learn more &rarr;
-          </Link>
+          <LinkTo href={href} aria-label={`Link to ${title}`}>
+            Learn more
+          </LinkTo>
         )}
       </div>
     </div>
