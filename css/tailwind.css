@@ -23,3 +23,20 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
+
+.bg-rainbow {
+  background: linear-gradient(
+    90deg,
+    #ff1282 0%,
+    #ff2e5f 10%,
+    #ff533d 20%,
+    #fe7d15 30%,
+    #ffa202 40%,
+    #ffc702 50%,
+    #e2de00 60%,
+    #a7ee26 70%,
+    #45f25b 80%,
+    #00ee8c 90%,
+    #01e5b4 100%
+  );
+}
