@@ -26,7 +26,7 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
       <article>
         <div>
           <header>
-            <div className="pb-10 space-y-1 text-center border-b border-gray-200 dark:border-gray-700">
+            <div className="pb-10 space-y-1 text-center border-b border-gray-200 dark:border-onyx-700">
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
@@ -41,10 +41,10 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
             </div>
           </header>
           <div
-            className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 "
+            className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-onyx-700 "
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
+            <div className="divide-y divide-gray-200 dark:divide-onyx-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
               <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
             </div>
             <Comments frontMatter={frontMatter} />
