@@ -1,16 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from './Link'
-import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
 
 type Props = {
   href: string
   back?: boolean
 } & React.HTMLAttributes<HTMLAnchorElement>
 
-export default function LinkTo({ href, back = false, children, ...rest }: Props) {
+export default function LinkTo({ href, back = false, children, className = '', ...rest }: Props) {
   const arrow = (
     <svg
-      className={`w-6 inline align-top transition fill-primary-500 group-hover:fill-primary-600 dark:group-hover:fill-primary-400 ${
+      className={`w-[1.5em] inline align-top transition fill-primary-500 group-hover:fill-primary-600 dark:group-hover:fill-primary-400 ${
         back ? 'rotate-180 group-hover:-translate-x-2' : 'group-hover:translate-x-2'
       }`}
       strokeWidth="0"
@@ -33,7 +32,7 @@ export default function LinkTo({ href, back = false, children, ...rest }: Props)
     <Link
       {...rest}
       href={href}
-      className="group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+      className={`group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 ${className}`}
     >
       {back && arrow}
       {children}

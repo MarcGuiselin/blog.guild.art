@@ -10,7 +10,7 @@ import { PostFrontMatter } from 'types/PostFrontMatter'
 import NewsletterForm from '@/components/NewsletterForm'
 import * as Typo from '@/components/Typography'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 3
 
 export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
   const posts = await getAllFilesFrontMatter('blog')
@@ -22,9 +22,36 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <div className="flex flex-col gap-4 py-10 px-2 items-center bg-slate-50 dark:bg-onyx-800 rounded-lg shadow-lg">
+        <div className="max-w-min">
+          <h1 className="text-3xl font-bold font-display leading-9 tracking-wide text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 whitespace-nowrap">
+            We are Guild Artists
+          </h1>
+          <div className="pt-8 prose lg:prose-xl dark:prose-dark prose-p:text-justify prose-a:!font-bold">
+            <p>
+              With the help of friends and artists around the globe we’re building a cooperative
+              digital platform for artists to promote and sell unique commissioned art pieces.
+            </p>
+            <p>
+              We’re a growing community of creatives, including both novices and professionals who
+              sell many different kinds of artwork online. We communicate via{' '}
+              <a href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+                Discord
+              </a>
+              . Join us at{' '}
+              <a href="https://join.guild.art/" target="_blank" rel="noopener noreferrer">
+                join.guild.art
+              </a>
+            </p>
+          </div>
+        </div>
+        <LinkTo href="/about.html" className="text-xl">
+          Learn more about our platform
+        </LinkTo>
+      </div>
       <div className="divide-y divide-gray-200 dark:divide-onyx-700">
         <Typo.Heading>
-          <Typo.Title>Latest</Typo.Title>
+          <Typo.Title2>Latest Community Posts</Typo.Title2>
           <Typo.Subtitle>{siteMetadata.description}</Typo.Subtitle>
         </Typo.Heading>
         <ul className="divide-y divide-gray-200 dark:divide-onyx-700">

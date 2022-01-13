@@ -11,6 +11,17 @@ export function Title({ children, ...rest }: Props) {
   )
 }
 
+export function Title2({ children, ...rest }: Props) {
+  return (
+    <h2
+      {...rest}
+      className="text-2xl font-extrabold font-display leading-9 tracking-wide text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14"
+    >
+      {children}
+    </h2>
+  )
+}
+
 export function Subtitle({ children, ...rest }: Props) {
   return (
     <p {...rest} className="text-lg leading-7 text-gray-500 dark:text-gray-400">
