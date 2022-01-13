@@ -74,7 +74,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     <li className="flex items-center space-x-2" key={author.name}>
                       {author.avatar && (
                         <Link
-                          href={`/author/${author.slug}`}
+                          href={`/blog/author/${author.slug}`}
                           className="text-gray-900 dark:text-gray-100"
                         >
                           <Image
@@ -90,7 +90,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <dt className="sr-only">Name</dt>
                         <dd>
                           <Link
-                            href={`/author/${author.slug}`}
+                            href={`/blog/author/${author.slug}`}
                             className="text-gray-900 dark:text-gray-100"
                           >
                             {author.name}
