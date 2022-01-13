@@ -8,12 +8,14 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { ReactNode } from 'react'
 import PageBackground from './Page/PageBackground'
+import { useRouter } from 'next/router'
 
 interface Props {
   children: ReactNode
 }
 
 const LayoutWrapper = ({ children }: Props) => {
+  const router = useRouter()
   return (
     <div className="relative min-h-screen">
       <PageBackground />
@@ -27,13 +29,9 @@ const LayoutWrapper = ({ children }: Props) => {
                   <div className="mr-3">
                     <Logo className="h-7 w-auto sm:h-9 fill-black dark:fill-white" />
                   </div>
-                  {typeof siteMetadata.headerTitle === 'string' ? (
-                    <div className="hidden h-6 text-2xl font-semibold font-display sm:block">
-                      {siteMetadata.headerTitle}
-                    </div>
-                  ) : (
-                    siteMetadata.headerTitle
-                  )}
+                  <div className="hidden h-6 text-2xl font-semibold font-display sm:block">
+                    Guild Artists{router.pathname.split('/')[1] == 'blog' ? ' Blog' : ''}
+                  </div>
                 </div>
               </Link>
             </div>

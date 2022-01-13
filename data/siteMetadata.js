@@ -1,7 +1,6 @@
 const siteMetadata = {
   title: 'The Guild of Artists',
   author: '@guildofartists',
-  headerTitle: 'Guild Artists Blog',
   description: 'A blog for the wider community of independent artists',
   language: 'en-us',
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
