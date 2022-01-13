@@ -44,3 +44,39 @@ input:-webkit-autofill:focus {
 .bg-striped {
   background: repeating-linear-gradient(-45deg, #000, #000 12px, #fff 0, #fff 24px);
 }
+
+.emoji {
+  @apply inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  max-width: 1.2em;
+  margin: -0.2em -0.05em 0 0;
+  vertical-align: -0.25em;
+}
+
+ul.checklist {
+  list-style-type: none;
+  margin: 1em 0 3em;
+  padding-left: 1.5em;
+}
+ul.checklist:first-child {
+  margin-top: 0px !important;
+}
+ul.checklist > li {
+  @apply relative pl-8 my-2;
+}
+ul.checklist > li::before {
+  @apply absolute block w-6 h-6 left-0 top-[2px];
+  content: '';
+}
+
+html:not(.dark) ul.checklist > li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 16 16' stroke-width='0' fill='black' %3E%3Cpath d='M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z'/%3E%3Cpath d='M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z'/%3E%3C/svg%3E");
+}
+html.dark ul.checklist > li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 16 16' stroke-width='0' fill='white' %3E%3Cpath d='M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z'/%3E%3Cpath d='M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z'/%3E%3C/svg%3E");
+}
+
+ul.checklist > li:not(:last-child) {
+  @apply pb-2;
+}
