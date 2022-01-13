@@ -37,7 +37,9 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
             <SocialIcon kind="mail" href={`mailto:${email}`} />
             <SocialIcon kind="twitter" href={twitter} />
           </div>
-          <div className="py-4 prose dark:prose-dark xl:col-span-2 rounded-b-lg">{children}</div>
+          <div className="py-4 prose dark:prose-dark xl:col-span-2 rounded-b-lg prose-p:text-justify">
+            {children}
+          </div>
         </div>
       </div>
     </>

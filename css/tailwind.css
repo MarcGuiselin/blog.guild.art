@@ -63,7 +63,7 @@ ul.checklist:first-child {
   margin-top: 0px !important;
 }
 ul.checklist > li {
-  @apply relative pl-8 my-2;
+  @apply relative pl-8 my-2 text-justify;
 }
 ul.checklist > li::before {
   @apply absolute block w-6 h-6 left-0 top-[2px];

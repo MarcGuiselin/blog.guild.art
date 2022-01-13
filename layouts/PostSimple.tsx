@@ -47,7 +47,9 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className="divide-y divide-gray-200 dark:divide-onyx-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
-              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
+              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none prose-p:text-justify">
+                {children}
+              </div>
             </div>
             <Comments frontMatter={frontMatter} />
             <footer>
