@@ -6,11 +6,11 @@ export default function Footer() {
   return (
     <footer>
       <div className="flex flex-col items-center mt-16">
-        <div className="flex mb-3 space-x-4">
+        <div className="flex mb-4 space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
         </div>
-        <div className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           {`© ${new Date().getFullYear()} `}
           <Link href="/">{siteMetadata.title}</Link>
         </div>
