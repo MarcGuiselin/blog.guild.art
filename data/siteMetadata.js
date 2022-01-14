@@ -13,7 +13,7 @@ const siteMetadata = {
     // supports plausible, simpleAnalytics or umami
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    umamiWebsiteId: 'bb2aa05b-12c4-4a42-a6bb-7e4763853d06', // e.g. 123e4567-e89b-12d3-a456-426614174000
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo
