@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'The Guild of Artists',
   author: '@guildofartists',
-  description: 'A blog for the wider community of independent artists',
+  description: "Let's help each other out!",
   language: 'en-us',
   siteUrl: 'https://guild.art',
   siteLogo: '/static/images/logo.png',
