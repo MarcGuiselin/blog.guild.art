@@ -5,7 +5,6 @@ const siteMetadata = {
   language: 'en-us',
   siteUrl: 'https://guild.art',
   siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'contact@guild.art',
   twitter: 'https://twitter.com/guildofartists',
