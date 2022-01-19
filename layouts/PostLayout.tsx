@@ -148,7 +148,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   </div>
                 )}
               </div>
-              <div className="pt-4 xl:pt-8">
+              <div className="pt-4 xl:pt-8 xl:sticky top-0">
                 <LinkTo href="/blog" back>
                   Back to the blog
                 </LinkTo>
