@@ -79,14 +79,24 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         >
                           <Image
                             src={author.avatar}
-                            width="80px"
-                            height="80px"
+                            width="38px"
+                            height="38px"
                             alt="avatar"
-                            className="w-20 h-20 rounded-full"
+                            className="w-10 h-10 rounded-full"
                           />
                         </Link>
                       )}
-                      <dl className="text-3xl font-medium leading-10 whitespace-nowrap">
+                      <dl className="text-sm font-medium leading-5 whitespace-nowrap">
+                        <dt className="sr-only">Name</dt>
+                        <dd>
+                          <Link
+                            href={`/blog/author/${author.slug}`}
+                            className="text-gray-900 dark:text-gray-100"
+                          >
+                            {author.name}
+                          </Link>
+                        </dd>
+                        <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (
                             <Link
