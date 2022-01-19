@@ -54,6 +54,11 @@ input:-webkit-autofill:focus {
   vertical-align: -0.25em;
 }
 
+/* links in not-prose should not be underlined by default */
+.prose .not-prose a {
+  @apply !no-underline;
+}
+
 ul.checklist {
   list-style-type: none;
   margin: 1em 0 3em;

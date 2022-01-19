@@ -60,6 +60,9 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+  images: {
+    domains: ['pbs.twimg.com'],
+  },
   async headers() {
     return [
       {
