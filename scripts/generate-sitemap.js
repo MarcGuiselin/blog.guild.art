@@ -23,8 +23,6 @@ const siteMetadata = require('../data/siteMetadata')
   const pathComp = (a) => Math.min(a.split('/').length, 2)
   pages.sort((a, b) => pathComp(a) - pathComp(b) || a.localeCompare(b))
 
-  console.log(pages)
-
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
