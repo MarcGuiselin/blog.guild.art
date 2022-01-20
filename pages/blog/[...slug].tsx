@@ -45,8 +45,10 @@ export const getStaticProps: GetStaticProps<{
 
   // rss
   if (allPosts.length > 0) {
-    const rss = generateRss(allPosts)
-    fs.writeFileSync('./public/feed.xml', rss)
+    await Promise.all([
+      fs.promises.writeFile('./public/feed.xml', generateRss(allPosts)),
+      fs.promises.writeFile('./public/blog/feed.xml', generateRss(allPosts, 'blog/feed.xml')),
+    ])
   }
 
   return {
