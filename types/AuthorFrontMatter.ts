@@ -1,3 +1,12 @@
+export type AuthorSocials = {
+  email?: string
+  facebook?: string
+  twitter?: string
+  youtube?: string
+  instagram?: string
+  website?: string
+}
+
 export type AuthorFrontMatter = {
   layout?: string
   name: string
@@ -5,8 +14,6 @@ export type AuthorFrontMatter = {
   occupation: string
   pronouns: string
   company: string
-  email: string
-  twitter: string
   slug: string
   summary?: string
-}
+} & AuthorSocials

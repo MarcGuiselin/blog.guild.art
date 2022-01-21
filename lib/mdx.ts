@@ -52,8 +52,8 @@ export async function getFileBySlug<T>(slug: string | string[]) {
 
   const toc: Toc = []
 
-  // Parsing frontmatter here to pass it in as options to rehype plugin
-  const { data: frontmatter } = matter(source)
+  // Parsing frontMatter here to pass it in as options to rehype plugin
+  const { data: frontMatter } = matter(source)
   const { code } = await bundleMDX({
     source,
     // mdx imports can be automatically source from the components directory
@@ -76,7 +76,7 @@ export async function getFileBySlug<T>(slug: string | string[]) {
         rehypeAutolinkHeadings,
         [
           rehypeCitation,
-          { bibliography: frontmatter?.bibliography, path: path.join(root, 'data') },
+          { bibliography: frontMatter?.bibliography, path: path.join(root, 'data') },
         ],
         [rehypePrismPlus, { ignoreMissing: true }],
       ]
@@ -98,8 +98,8 @@ export async function getFileBySlug<T>(slug: string | string[]) {
       readingTime: readingTime(code),
       slug: lastSlug || null,
       fileName: `${lastSlug}.mdx`,
-      ...frontmatter,
-      date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+      ...frontMatter,
+      date: frontMatter.date ? new Date(frontMatter.date).toISOString() : null,
     },
   }
 }
@@ -120,12 +120,12 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     }
     const source = fs.readFileSync(file, 'utf8')
     const matterFile = matter(source)
-    const frontmatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
-    if ('draft' in frontmatter && frontmatter.draft !== true) {
+    const frontMatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
+    if ('draft' in frontMatter && frontMatter.draft !== true) {
       allFrontMatter.push({
-        ...frontmatter,
+        ...frontMatter,
         slug: formatSlug(fileName),
-        date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+        date: frontMatter.date ? new Date(frontMatter.date).toISOString() : null,
       })
     }
   })

@@ -1,4 +1,4 @@
-import SocialIcon from '@/components/social-icons'
+import SocialRow from '@/components/SocialRow'
 import Image from '@/components/Image'
 import { CommonSEO } from '@/components/SEO'
 import { ReactNode } from 'react'
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, frontMatter }: Props) {
-  const { name, avatar, occupation, pronouns, company, email, twitter, summary } = frontMatter
+  const { name, avatar, occupation, pronouns, company, twitter, summary } = frontMatter
 
   return (
     <>
@@ -41,10 +41,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
               <div className="text-gray-500 dark:text-white dark:text-opacity-60">{company}</div>
             </div>
           </div>
-          <div className="flex space-x-3 justify-center py-4">
-            <SocialIcon kind="mail" href={`mailto:${email}`} />
-            <SocialIcon kind="twitter" href={twitter} />
-          </div>
+          <SocialRow className="flex space-x-3 justify-center py-4" frontMatter={frontMatter} />
           <div className="py-4 prose dark:prose-dark xl:col-span-2 rounded-b-lg prose-p:text-justify">
             {children}
           </div>
