@@ -8,4 +8,5 @@ export type AuthorFrontMatter = {
   email: string
   twitter: string
   slug: string
+  summary?: string
 }

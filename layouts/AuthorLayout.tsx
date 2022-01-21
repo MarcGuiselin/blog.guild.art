@@ -10,13 +10,13 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, frontMatter }: Props) {
-  const { name, avatar, occupation, pronouns, company, email, twitter } = frontMatter
+  const { name, avatar, occupation, pronouns, company, email, twitter, summary } = frontMatter
 
   return (
     <>
       <CommonSEO
         title={`About - ${name}`}
-        description={`About me - ${name}`}
+        description={summary || `About me - ${name}`}
         ogType="profile"
         ogImage={avatar}
         twImage={avatar}
