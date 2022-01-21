@@ -1,6 +1,6 @@
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
-import { PageSEO } from '@/components/SEO'
+import { CommonSEO } from '@/components/SEO'
 import { ReactNode } from 'react'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 
@@ -14,7 +14,14 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
 
   return (
     <>
-      <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
+      <CommonSEO
+        title={`About - ${name}`}
+        description={`About me - ${name}`}
+        ogType="profile"
+        ogImage={avatar}
+        twImage={avatar}
+        twitter={twitter}
+      />
       <div className="items-start space-y-2">
         <div className="bg-slate-50 dark:bg-onyx-800 max-w-max mx-auto rounded-lg shadow-lg divide-y-2 divide-slate-200 dark:divide-onyx-700 px-6">
           <div className="flex flex-col items-center mt-4 pt-8 pb-6 space-y-4">
