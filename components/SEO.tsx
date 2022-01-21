@@ -16,6 +16,7 @@ interface CommonSEOProps {
       }[]
   twImage: string
   twitter?: string
+  twCardType?: 'summary_large_image' | 'summary'
 }
 
 export const CommonSEO = ({
@@ -25,6 +26,7 @@ export const CommonSEO = ({
   ogImage,
   twImage,
   twitter,
+  twCardType = 'summary_large_image',
 }: CommonSEOProps) => {
   const router = useRouter()
   return (
@@ -42,8 +44,9 @@ export const CommonSEO = ({
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={twitter || siteMetadata.twitter} />
+      <meta name="twitter:card" content={twCardType} />
+      <meta name="twitter:site" content={siteMetadata.twitter} />
+      {twitter && <meta name="twitter:creator" content={twitter} />}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={twImage} />

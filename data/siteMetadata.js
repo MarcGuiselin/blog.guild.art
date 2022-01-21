@@ -7,7 +7,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'contact@guild.art',
-  twitter: 'https://twitter.com/guildofartists',
+  twitter: 'guildofartists',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or umami

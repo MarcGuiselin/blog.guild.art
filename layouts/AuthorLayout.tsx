@@ -21,6 +21,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
         ogImage={avatar}
         twImage={avatar}
         twitter={twitter}
+        twCardType="summary"
       />
       <div className="items-start space-y-2">
         <div className="bg-slate-50 dark:bg-onyx-800 max-w-max mx-auto rounded-lg shadow-lg divide-y-2 divide-slate-200 dark:divide-onyx-700 px-6">
