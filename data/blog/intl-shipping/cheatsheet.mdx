@@ -1,0 +1,140 @@
+---
+date: 2022-1-21
+title: 'International Shipping Cheatsheet'
+summary: '---------'
+tags:
+  - Guide
+  - Shipping
+draft: false
+authors:
+  - marlou
+---
+
+Hi! I’m Marlou from [Meplushyou](https://meplushyou.com/), a small business owner from the EU, selling handmade plush.
+
+I’ve noticed a lot of (plush) artists have posted about no longer sending to the EU, which is very drastic and unnecessary in most cases!
+
+Please read this if you are a small business owner who would like to keep selling to the EU! ❤️
+
+If you have any questions, please feel free to reach out on Twitter or Instagram.
+
+> The EU (European Union) includes [this list of countries](https://european-union.europa.eu/principles-countries-history/country-profiles_en#28members). The UK is no longer part of the EU and has their own tax and import rules.
+
+<Tailor.Form
+  title="Hide parts of the article you don't need"
+  subtitle="Answer the questions below to get started"
+>
+  <Tailor.Dropdown
+    name="ship_to"
+    label="Where are you shipping to?"
+    options={{
+      '': 'Anywhere',
+      eu: 'To the EU',
+      other: 'To other countries',
+    }}
+  />
+  <Tailor.Dropdown
+    name="is_toylike"
+    label="Are you shipping something that might be considered a toy? (doll, plush, figurine, etc)"
+    options={{
+      '': "I'm not sure",
+      yes: 'Yes',
+      no: 'No',
+    }}
+  />
+  <Tailor.Show if={(get) => get('is_toylike') == 'yes' || get('is_toy') != get('is_toylike')}>
+    <Tailor.Dropdown
+      name="is_toy"
+      label="Is it a toy intended for children?"
+      options={{
+        '': "I'm not sure",
+        yes: {
+          title: 'Yes',
+          description:
+            'The item I am shipping is designed or intended, whether or not exclusively, for use in play by children under 14 years of age.',
+        },
+        no: {
+          title: 'No',
+          description: 'This is not a toy',
+        },
+      }}
+    />
+  </Tailor.Show>
+</Tailor.Form>
+
+<Tailor.Show none={{ is_toy: 'no', ship_to: 'other' }}>
+
+## Selling custom toys to the EU
+
+This recent Etsy article scared a lot of custom plush/doll sellers out of shipping to the EU.
+
+It’s true that there are changes for companies selling toys to the EU, but as a custom plush or doll artist, you’re most likely not selling actual toys and you’re not affected by this change – let me explain:
+
+The most prominent part of the official definition of a toy in the EU is that it is designed or intended, whether or not exclusively, for use in play by children under 14 years of age. If this is not the case for the product you sell, you’re in the clear.
+
+> If you’re making one-off or very low quantity plushies/dolls or commissions, not specifically marketed towards children, I can assure you your product does not count as a toy.
+
+<Tailor.Dropdown
+  name="is_toy"
+  label="Is it actually a toy?"
+  options={{
+    '': "I'm not sure",
+    yes: {
+      title: 'Yes',
+      description:
+        'The item I am shipping is designed or intended, whether or not exclusively, for use in play by children under 14 years of age',
+    },
+    no: {
+      title: 'No',
+      description: 'This is not a toy',
+    },
+  }}
+/>
+
+### How the EU defines a toy
+
+Please note that this document has been pretty much the same since 2009. Toys sold in the EU had to comply with these rules for years now. This is why toys are safety tested and get CE markings.
+
+<Tailor.Show none={{ is_toy: 'no' }}>
+
+### I am selling custom toys meant for children
+
+If that's the case, you’ve got work to do!
+
+If you are actually selling toys to the EU, aimed at children, that recent Etsy article does apply to you. You’ll probably have to either stop selling to the EU, accept the risks or make the necessary adjustments. Since I don’t personally sell actual toys I can’t really help you with that, but I do recommend reading this document so you know what’s changing: https://ec.europa.eu/docsroom/documents/44908
+
+If you want to sell toys in the EU, you’ll have to also look into the following:
+
+- [CE markings European safety standard](https://ec.europa.eu/growth/sectors/toys/placing-on-eu-market)
+- [More info on toy safety in the EU](https://ec.europa.eu/docsroom/documents/15985/attachments/1/translations) (Note: toys imported to and sold in the EU have had to comply with these rules since 2009.)
+
+</Tailor.Show>
+
+</Tailor.Show>
+
+<Tailor.Show if={(get) => get('is_toylike') != 'no' && get('is_toy') != 'yes' && get('ship_to') != 'other'}>
+
+## Sell custom toy-like items to the EU
+
+If you sell custom plush or dolls they may LOOK like toys. It’s important you make sure they’re not perceived as a toy for a child. You can do this by adding the following:
+
+- Include an invoice. Your custom art piece is probably going to be a lot more expensive than a toy;
+- Include a statement or packaging label that shows the product is not intended for children below the age of 14;
+- Use a Customs description that does not include the word toy, but something else;
+- Avoid using toy-related HS codes.
+
+</Tailor.Show>
+
+## Find your HS Code
+
+If you are shipping internationally, you need to find an HS Code.
+
+<LinkTo href="/blog/intl-shipping/hs-codes">View Helpful HS Codes</LinkTo>
+
+> Whenever you ship something internationally the package will be handed over to Customs before entering the country. To inform the Customs inspector of what is inside the parcel (what it is and how it should be taxed), you include Harmonized System (HS) Codes
+
+# TODO MISSING:
+
+## EU Import Taxes (VAT)
+
+### IOSS

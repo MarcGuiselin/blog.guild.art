@@ -5,6 +5,7 @@ import pre from './Pre'
 import TOCInline from './TOCInline'
 import wrapper from './Wrapper'
 import p from './Paragraph'
+import * as Tailor from './Tailor'
 import LinkTo from './LinkTo'
 
 export default {
@@ -15,5 +16,6 @@ export default {
   wrapper,
   Tweet,
   p,
+  Tailor,
   LinkTo,
 }

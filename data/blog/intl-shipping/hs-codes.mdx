@@ -1,0 +1,114 @@
+---
+date: 2022-1-21
+title: 'International Shipping: Helpful HS Codes'
+summary: A list of useful Harmonized System (HS) codes required for international shipments
+parent:
+  title: Return to Cheatsheet
+  slug: /blog/intl-shipping/cheatsheet#find-your-hs-code
+tags:
+  - Guide
+  - Shipping
+draft: false
+authors:
+  - marlou
+---
+
+Whenever you ship something internationally the package will be handed over to Customs before entering the country. To inform the Customs inspector of what is inside the parcel (what it is and how it should be taxed), you include Harmonized System (HS) Codes. You can find codes for your products here: https://www.tariffnumber.com/
+
+Most shipping companies will have default customs documents for you to use, which will have a field for the HS code. All you have to do is fill it out!
+
+<Tailor.Form
+  title="Hide parts of the article you don't need"
+  subtitle="Answer the questions below to get started"
+>
+  <Tailor.Dropdown
+    name="is_toylike"
+    label="Are you shipping something that might be considered a toy? (doll, plush, figurine, etc)"
+    options={{
+      '': "I'm not sure",
+      yes: 'Yes',
+      no: 'No',
+    }}
+  />
+  <Tailor.Show if={(get) => get('is_toylike') == 'yes' || get('is_toy')}>
+    <Tailor.Dropdown
+      name="is_toy"
+      label="Is it a toy intended for children?"
+      options={{
+        '': "I'm not sure",
+        yes: {
+          title: 'Yes',
+          description:
+            'The item I am shipping is designed or intended, whether or not exclusively, for use in play by children under 14 years of age.',
+        },
+        no: {
+          title: 'No',
+          description: 'This is not a toy',
+        },
+      }}
+    />
+  </Tailor.Show>
+</Tailor.Form>
+
+## Handy HS codes:
+
+- `49119900` Printed goods (pretty broad category for anything you can print art on really)
+- `71179000` Imitation jewelery (can be used for pins and charms, not for actual jewelry)
+- `62171000` Clothing accessories, of all types of textile materials excl. knitted/crocheted
+- `83062900` Statuettes and other ornaments (useful for art dolls or any kind)
+  <Tailor.Show none={{is_toy: 'no'}}>
+- `95030041` Stuffed **toy (intended for use by children)** representing animals or non-human creatures
+  </Tailor.Show>
+- `95030021` Dolls representing only human beings
+- `63079098` Other textile items and patterns (for anything made of fabric pretty much, excl. masks)
+- `392690` For dolls/articles of plastic in general if they are plastic/silicone
+
+## Real World Experiences:
+
+<Tailor.Show none={{is_toylike: 'no'}}>
+
+Toy-like art successfully shipped using HS code `63079098` labeled as "plush art doll" or "plush art horse"
+
+<Tweet
+  data={{
+    id: '1414660902692003845',
+    author: {
+      id: 'Pyritie',
+      name: 'Pyritie 🥧',
+      avatar: 'https://pbs.twimg.com/profile_images/1457331529936420868/iwj4Ra0S_normal.jpg',
+      verified: false,
+    },
+    text:
+      'For any plush makers following me:\nI sent out a togekiss last week to someone in germany (I am in the UK). I wrote "plush art doll" on the customs label, used 63079098 as my tariff number, and didn\'t put any IOSS info on it (sold before july 1st). Customer received it just fine!',
+    createdAt: '2021-07-12T19:00:00.000Z',
+    replyCount: 4,
+    retweetCount: 6,
+    likeCount: 43,
+  }}
+/>
+
+<Tweet
+  data={{
+    id: '1422989192506880004',
+    author: {
+      id: 'larsen_toys',
+      name: 'Jack Larsen ♘ Plush craft',
+      avatar: 'https://pbs.twimg.com/profile_images/1346195529575886849/ox8QpHTe_normal.jpg',
+      verified: false,
+    },
+    text:
+      'Very grateful @meplushyou I used HS code she wrote in article https://twitter.com/meplushyou/status/1409425023190896645?s=09 \n\n63079098 - this HS code\nthe name of the item was "plush art horse"\nThe package was sent on July 21st. It was received today, August 4th.  Delivery from Russia to the Netherlands lasted 13 days',
+    createdAt: '2021-08-04T18:33:00.000Z',
+    replyCount: 2,
+    retweetCount: 2,
+    likeCount: 14,
+  }}
+/>
+
+</Tailor.Show>
+
+Please let us know your experience shipping overseas! Tag [@guildofartists](https://twitter.com/guildofartists) or [@meplushyou](https://twitter.com/meplushyou) on Twitter if you have any questions.
+
+<LinkTo href="/blog/intl-shipping/cheatsheet#find-your-hs-code" back>
+  Return to International Shipping Cheatsheet
+</LinkTo>
