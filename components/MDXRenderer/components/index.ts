@@ -5,6 +5,7 @@ import pre from './Pre'
 import TOCInline from './TOCInline'
 import wrapper from './Wrapper'
 import p from './Paragraph'
+import LinkTo from './LinkTo'
 
 export default {
   Image,
@@ -14,4 +15,5 @@ export default {
   wrapper,
   Tweet,
   p,
+  LinkTo,
 }
