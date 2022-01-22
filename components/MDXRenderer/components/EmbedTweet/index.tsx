@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Twemoji from '../Twemoji'
+import Twemoji from '../../../Twemoji'
 
 type TwitterMedia = {
   src: string
