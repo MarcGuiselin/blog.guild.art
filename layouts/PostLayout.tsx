@@ -33,7 +33,7 @@ interface Props {
 }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }: Props) {
-  const { slug, date, title, tags } = frontMatter
+  const { slug, date, title, tags, parent } = frontMatter
 
   return (
     <SectionContainer>
@@ -47,15 +47,17 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-onyx-700">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
+              <dl className="space-y-10 h-6">
+                {date && !parent && (
+                  <div>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <time dateTime={date}>
+                        {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                      </time>
+                    </dd>
+                  </div>
+                )}
               </dl>
               <div>
                 <PageTitle>{title}</PageTitle>
@@ -159,8 +161,8 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 )}
               </div>
               <div className="pt-4 xl:pt-8 xl:sticky top-0">
-                <LinkTo href="/blog" back>
-                  Back to the blog
+                <LinkTo href={frontMatter.parent?.slug || '/blog'} back>
+                  {frontMatter.parent?.title || 'Back to the blog'}
                 </LinkTo>
               </div>
             </footer>
