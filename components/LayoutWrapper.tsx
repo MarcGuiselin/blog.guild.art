@@ -15,6 +15,7 @@ interface Props {
 
 const LayoutWrapper = ({ children }: Props) => {
   const router = useRouter()
+  const title = `Guild Artists${router.pathname.split('/')[1] == 'blog' ? ' Blog' : ''}`
   return (
     <div className="relative min-h-screen">
       <PageBackground />
@@ -23,13 +24,13 @@ const LayoutWrapper = ({ children }: Props) => {
         <div className="relative flex flex-col justify-between">
           <header className="flex items-center justify-between py-10">
             <div>
-              <Link href="/" aria-label="Tailwind CSS Blog">
+              <Link href="/" aria-label={title}>
                 <div className="flex items-center justify-between">
                   <div className="mr-3">
                     <Logo className="h-7 w-auto sm:h-9 fill-black dark:fill-white" />
                   </div>
                   <div className="hidden h-6 text-2xl font-semibold font-display sm:block">
-                    Guild Artists{router.pathname.split('/')[1] == 'blog' ? ' Blog' : ''}
+                    {title}
                   </div>
                 </div>
               </Link>
