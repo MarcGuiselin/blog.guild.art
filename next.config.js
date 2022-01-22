@@ -11,6 +11,7 @@ const ContentSecurityPolicy = `
   media-src 'none';
   connect-src *;
   font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;
+  report-uri https://guildart.report-uri.com/r/d/csp/enforce;
 `
 
 const securityHeaders = [
