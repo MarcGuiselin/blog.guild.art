@@ -113,8 +113,8 @@ export const BlogSEO = ({
   images = [],
 }: BlogSeoProps) => {
   const router = useRouter()
-  const publishedAt = new Date(date).toISOString()
-  const modifiedAt = new Date(lastmod || date).toISOString()
+  const datePublished = date ? new Date(date).toISOString() : undefined
+  const dateModified = lastmod || date ? new Date(lastmod || date).toISOString() : undefined
   const imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
@@ -153,8 +153,8 @@ export const BlogSEO = ({
     },
     headline: title,
     image: featuredImages,
-    datePublished: publishedAt,
-    dateModified: modifiedAt,
+    datePublished,
+    dateModified,
     author: authorList,
     publisher: {
       '@type': 'Organization',
@@ -179,8 +179,8 @@ export const BlogSEO = ({
         twImage={twImageUrl}
       />
       <Head>
-        {date && <meta property="article:published_time" content={publishedAt} />}
-        {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
+        {datePublished && <meta property="article:published_time" content={datePublished} />}
+        {dateModified && <meta property="article:modified_time" content={dateModified} />}
         <link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
         <script
           type="application/ld+json"

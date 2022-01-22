@@ -1,0 +1,2 @@
+# Prettier regularly breaks mdx files
+*.mdx
