@@ -1,4 +1,4 @@
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import MDXRenderer from '@/components/MDXRenderer'
 import { getFileBySlug } from '@/lib/mdx'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostFrontMatter } from 'types/PostFrontMatter'
@@ -18,7 +18,7 @@ export default function About({
   post: { mdxSource, frontMatter },
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <MDXLayoutRenderer
+    <MDXRenderer
       layout={frontMatter.layout || DEFAULT_LAYOUT}
       mdxSource={mdxSource}
       frontMatter={frontMatter}
