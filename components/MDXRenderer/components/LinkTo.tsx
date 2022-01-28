@@ -3,9 +3,10 @@ import Link from '../../Link'
 type Props = {
   href: string
   back?: boolean
+  hideOnMobile?: boolean
 } & React.HTMLAttributes<HTMLAnchorElement>
 
-export default function LinkTo({ href, back = false, children, ...rest }: Props) {
+export default function LinkTo({ href, back = false, children, hideOnMobile, ...rest }: Props) {
   const arrow = (
     <svg
       className={`w-7 inline align-top transition fill-primary-500 group-hover:fill-primary-600 dark:group-hover:fill-primary-400 ${
@@ -32,7 +33,9 @@ export default function LinkTo({ href, back = false, children, ...rest }: Props)
       <Link
         href={href}
         {...rest}
-        className="group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer"
+        className={`group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer ${
+          hideOnMobile ? 'hidden xl:inline' : 'inline'
+        }`}
       >
         {back && arrow}
         {children}
