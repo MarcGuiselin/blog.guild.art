@@ -26,8 +26,8 @@ If you have any questions, please feel free to reach out on Twitter or Instagram
     label="Where are you shipping to?"
     options={{
       '': 'Anywhere',
-      eu: 'To the EU',
-      other: 'To other countries',
+      eu: 'The EU',
+      other: 'Other countries',
     }}
   />
   <Tailor.Show if={(get) => get('ship_to') == 'eu' || get('etsy') != ''}>
