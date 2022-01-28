@@ -34,7 +34,7 @@ export default function Provider({ children }: Props) {
         const positive = diff > 0
 
         prevToastId = toast.custom(
-          ({ id, visible }) => (
+          ({ id, visible, duration }) => (
             <div className="w-full">
               <div className="w-full max-w-3xl xl:max-w-5xl mx-auto xl:grid xl:grid-cols-4 xl:gap-x-6">
                 <div className="xl:col-span-3 xl:row-span-2 xl:col-start-2">
@@ -64,7 +64,7 @@ export default function Provider({ children }: Props) {
                       <button
                         type="submit"
                         role="menuitem"
-                        className="hidden sm:block bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer hover:bg-red-700 focus:bg-red-700 focus:ring-red-500 text-white"
+                        className="hidden sm:block bg-slate-300 dark:bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer hover:bg-red-300 focus:bg-red-300 focus:ring-red-500 dark:hover:bg-red-700 dark:focus:bg-red-700 text-black dark:text-white"
                         onClick={clear}
                       >
                         Reset (Clear my choices)

@@ -19,23 +19,26 @@ export default function Form({ children }: Props) {
             Answer the questions below to get started
           </p>
         </div>
-        <div className="py-2 sm:px-6 space-y-4" role="group">
+        <div
+          className="py-2 sm:px-6 space-y-4 divide-y divide-slate-300 dark:divide-onyx-900"
+          role="group"
+        >
           {children}
-          <div className="px-6 py-2 text-center overflow-hidden">
-            <button
-              type="submit"
-              role="menuitem"
-              className={`bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 inline-flex justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                changed
-                  ? 'cursor-pointer hover:bg-red-700 focus:bg-red-700 focus:ring-red-500 text-white'
-                  : 'cursor-not-allowed text-gray-500 dark:text-gray-400'
-              }`}
-              onClick={clear}
-              disabled={!changed}
-            >
-              Reset (Clear my choices)
-            </button>
-          </div>
+        </div>
+        <div className="px-6 py-2 text-center overflow-hidden">
+          <button
+            type="submit"
+            role="menuitem"
+            className={`bg-slate-300 dark:bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 inline-flex justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 text-black dark:text-white ${
+              changed
+                ? 'cursor-pointer hover:bg-red-300 focus:bg-red-300 focus:ring-red-500 dark:hover:bg-red-700 dark:focus:bg-red-700'
+                : 'cursor-not-allowed text-opacity-70 dark:text-opacity-70'
+            }`}
+            onClick={clear}
+            disabled={!changed}
+          >
+            Reset{changed ? ' (Clear my choices)' : ''}
+          </button>
         </div>
       </div>
     </div>
