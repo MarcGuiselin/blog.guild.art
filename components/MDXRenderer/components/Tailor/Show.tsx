@@ -39,5 +39,5 @@ function ShowDev({ children, ...conditional }: Props) {
 const isProduction = process.env.NODE_ENV === 'production'
 
 // eslint-disable-next-line import/no-anonymous-default-export
-const Show = isProduction ? ShowProd : ShowDev
+const Show = isProduction ? ShowProd : ShowProd
 export default Show

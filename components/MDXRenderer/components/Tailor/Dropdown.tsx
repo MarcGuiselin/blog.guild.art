@@ -36,13 +36,13 @@ export default function Dropdown({ name, label, options }: Props) {
     <Listbox value={currentValue} onChange={(value) => set(name, value)}>
       {({ open }) => (
         <div
-          className="not-prose sm:flex gap-1 w-full bg-slate-50 dark:bg-onyx-700 p-2 rounded-lg"
+          className="not-prose flex flex-col sm:flex-row gap-1 w-full bg-slate-50 dark:bg-onyx-700 p-2 rounded-lg"
           role="menuitem"
         >
           <Listbox.Label className="self-start sm:self-center text-base sm:text-lg flex-grow text-gray-900 dark:text-gray-100">
             {label}
           </Listbox.Label>
-          <div className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0 self-end">
             <div className="shadow-sm rounded-md divide-x divide-indigo-600">
               <div className="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
                 <div className="relative inline-flex flex-grow items-center bg-indigo-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">

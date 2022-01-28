@@ -39,7 +39,7 @@ export default function Provider({ children }: Props) {
               <div className="w-full max-w-3xl xl:max-w-5xl mx-auto xl:grid xl:grid-cols-4 xl:gap-x-6">
                 <div className="xl:col-span-3 xl:row-span-2 xl:col-start-2">
                   <div
-                    className={`mx-auto flex flex-row justify-center items-center gap-4 px-4 py-2 bg-slate-50 dark:bg-onyx-700 rounded-lg max-w-fit shadow-2xl ${
+                    className={`mx-auto flex flex-row justify-center items-center gap-2 px-2 sm:gap-4 sm:px-4 py-2 bg-slate-50 dark:bg-onyx-700 rounded-lg max-w-fit shadow-2xl ${
                       visible ? 'animate-enter' : 'animate-leave'
                     }`}
                   >
@@ -53,10 +53,10 @@ export default function Provider({ children }: Props) {
                       />
                     </div>
                     <div className="">
-                      <h1 className="text-lg font-semibold leading-none tracking-wider pb-1">
+                      <h1 className="text-base sm:text-lg font-semibold leading-none tracking-wider pb-1">
                         {positive ? 'Slower Read' : 'Quicker read!'}
                       </h1>
-                      <p className="text-base">
+                      <p className="text-sm sm:text-base">
                         This article is {Math.abs(diff)} words {positive ? 'longer' : 'shorter'}
                       </p>
                     </div>
@@ -64,7 +64,7 @@ export default function Provider({ children }: Props) {
                       <button
                         type="submit"
                         role="menuitem"
-                        className="bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 inline-flex justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer hover:bg-red-700 focus:bg-red-700 focus:ring-red-500 text-white"
+                        className="hidden sm:block bg-onyx-800 transition border border-transparent rounded-full shadow-sm py-2 px-8 justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer hover:bg-red-700 focus:bg-red-700 focus:ring-red-500 text-white"
                         onClick={clear}
                       >
                         Reset (Clear my choices)
@@ -73,7 +73,7 @@ export default function Provider({ children }: Props) {
                     <button
                       type="submit"
                       role="menuitem"
-                      className="bg-black bg-opacity-5 transition border border-transparent rounded-full shadow-sm p-2 inline-flex justify-center text-sm font-medium cursor-pointer hover:bg-opacity-20 focus:bg-opacity-20 text-black"
+                      className="block bg-black bg-opacity-5 dark:bg-white dark:bg-opacity-5 transition border border-transparent rounded-full shadow-sm p-2 justify-center text-sm font-medium cursor-pointer hover:bg-opacity-20 focus:bg-opacity-20 text-black dark:text-white"
                       onClick={() => toast.remove(id)}
                     >
                       <span className="sr-only">Close Notification</span>
@@ -85,7 +85,7 @@ export default function Provider({ children }: Props) {
             </div>
           ),
           {
-            duration: 8000,
+            duration: 5500,
           }
         )
       }
