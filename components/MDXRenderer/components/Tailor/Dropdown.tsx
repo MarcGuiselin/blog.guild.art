@@ -40,13 +40,13 @@ export default function Dropdown({ name, label, options }: Props) {
             {label}
           </Listbox.Label>
           <div className="relative flex-shrink-0 self-end">
-            <div className="shadow-sm rounded-md divide-x divide-indigo-600">
-              <div className="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
-                <div className="relative inline-flex flex-grow items-center bg-indigo-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">
+            <div className="shadow-sm rounded-md divide-x divide-primary-600">
+              <div className="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-primary-600">
+                <div className="relative inline-flex flex-grow items-center bg-primary-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">
                   {Icon && <Icon className="h-5 w-5" aria-hidden="true" />}
                   <p className="ml-2.5 text-sm font-medium">{selectedTitle}</p>
                 </div>
-                <Listbox.Button className="relative inline-flex items-center bg-indigo-500 p-2 rounded-l-none rounded-r-md text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:z-10 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                <Listbox.Button className="relative inline-flex items-center bg-primary-500 p-2 rounded-l-none rounded-r-md text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:z-10 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-primary-500">
                   <span className="sr-only">{label}</span>
                   <BsChevronDown className="h-5 w-5 text-white" aria-hidden="true" />
                 </Listbox.Button>
@@ -70,7 +70,7 @@ export default function Dropdown({ name, label, options }: Props) {
                       key={value}
                       className={({ active }) =>
                         classNames(
-                          active ? 'text-white bg-indigo-500' : 'text-gray-900',
+                          active ? 'text-white bg-primary-500' : 'text-gray-900',
                           'cursor-default select-none relative p-4 text-sm'
                         )
                       }
@@ -81,7 +81,7 @@ export default function Dropdown({ name, label, options }: Props) {
                           <div className="flex justify-between">
                             <p className={selected ? 'font-semibold' : 'font-normal'}>{title}</p>
                             {selected ? (
-                              <span className={active ? 'text-white' : 'text-indigo-500'}>
+                              <span className={active ? 'text-white' : 'text-primary-500'}>
                                 <BsCheck2 className="h-5 w-5" aria-hidden="true" />
                               </span>
                             ) : null}
@@ -89,7 +89,7 @@ export default function Dropdown({ name, label, options }: Props) {
                           {description && (
                             <p
                               className={classNames(
-                                active ? 'text-indigo-200' : 'text-gray-500',
+                                active ? 'text-primary-200' : 'text-gray-500',
                                 'mt-2'
                               )}
                             >
