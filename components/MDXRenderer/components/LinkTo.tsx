@@ -4,9 +4,17 @@ type Props = {
   href: string
   back?: boolean
   hideOnMobile?: boolean
+  inline?: boolean
 } & React.HTMLAttributes<HTMLAnchorElement>
 
-export default function LinkTo({ href, back = false, children, hideOnMobile, ...rest }: Props) {
+export default function LinkTo({
+  href,
+  back = false,
+  children,
+  hideOnMobile,
+  inline,
+  ...rest
+}: Props) {
   const arrow = (
     <svg
       className={`w-7 inline align-top transition fill-primary-500 group-hover:fill-primary-600 dark:group-hover:fill-primary-400 ${
@@ -28,19 +36,24 @@ export default function LinkTo({ href, back = false, children, hideOnMobile, ...
       ></path>
     </svg>
   )
-  return (
-    <p>
-      <Link
-        href={href}
-        {...rest}
-        className={`group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer ${
-          hideOnMobile ? 'hidden xl:inline' : 'inline'
-        }`}
-      >
-        {back && arrow}
-        {children}
-        {!back && arrow}
-      </Link>
-    </p>
+
+  const link = (
+    <Link
+      href={href}
+      {...rest}
+      className={`group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer ${
+        hideOnMobile ? 'hidden xl:inline' : 'inline'
+      }`}
+    >
+      {back && arrow}
+      {children}
+      {!back && arrow}
+    </Link>
   )
+
+  if (inline) {
+    return link
+  }
+
+  return <p>{link}</p>
 }

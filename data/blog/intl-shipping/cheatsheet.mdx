@@ -33,7 +33,7 @@ If you have any questions, please feel free to reach out on Twitter or Instagram
   <Tailor.Show if={(get) => get('ship_to') == 'eu' || get('etsy') != ''}>
     <Tailor.Dropdown
       name="etsy"
-      label="Are you selling on Etsy?"
+      label="Are you selling on Etsy/Amazon or another large platform that collects and remits VAT?"
       options={{
         '': "I'm not sure",
         yes: 'Yes',
@@ -82,30 +82,39 @@ If you have any questions, please feel free to reach out on Twitter or Instagram
 </Tailor.Form>
 
 
-## Checklist
+## Checklist & TLDR
 
-- I'm using a correct HS code and a short item description for customs
-<Tailor.Show none={{ ship_to: 'other' }}>
-- *If shipping to the EU*
-  <Tailor.Show none={{ is_toy: 'no' }}>
-  - *If selling a custom toy:* I read and understand EU guidelines
-  </Tailor.Show>
-  <Tailor.Show none={{ over_150: 'yes' }}>
-  - *If under 150 EUR sale value:* I've sent the marketplace (Etsy/other) IOSS number electronically to the shipping company or it was done automatically. (If you don't have an IOSS number, that's ok)
-  </Tailor.Show>
-  <Tailor.Show none={{ over_150: 'no' }}>
-  - *If over 150 EUR value:* My customer will pay sales tax when the item arrives in their country
-  </Tailor.Show>
-</Tailor.Show>
-- I attached the invoice to the exterior of the parcel
-- I included a copy of the invoice inside the parcel
-- `TODO: add more checklist items here?`
+<FieldSet.Group none={{ ship_to: 'other' }}>
+<FieldSet.Legend>When shipping to the EU, from outside the EU, I need to:</FieldSet.Legend>
+<FieldSet.Check>Find the correct HS code for the item(s) I'm shipping. <LinkTo href="/blog/intl-shipping/hs-codes" inline>More info</LinkTo></FieldSet.Check>
+<FieldSet.Check>Fill out the customs info with the correct HS code and short item description.</FieldSet.Check>
+<FieldSet.Check>Include the invoice on the outside of the parcel (in plastic sleeve).</FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group none={{ etsy: 'no' }}>
+<FieldSet.Legend>If the order was made through a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Legend>
+<FieldSet.Check>Include the VAT invoice on the outside of the parcel.</FieldSet.Check>
+<FieldSet.Check>Use Etsy shipping labels or send the marketplace (Etsy/other) IOSS number electronically to the shipping company. <LinkTo href="#sale-made-through-etsy" inline>More info</LinkTo></FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group none={{ is_toylike: 'no' }}>
+<FieldSet.Legend>If [shipping a custom toy-like item](#selling-custom-toys-to-the-eu), I need to:</FieldSet.Legend>
+<FieldSet.Check>Include a statement or packaging label that shows the product is not intended for children below the age of 14.</FieldSet.Check>
+<FieldSet.Check>Avoid using toy-related HS codes and customs description.</FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group>
+<FieldSet.Legend>My customer will then:</FieldSet.Legend>
+<FieldSet.Check>Pay taxes upon checkout if the order value is under 150 EUR and the purchase is made to a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Check>
+<FieldSet.Separator>OR</FieldSet.Separator>
+<FieldSet.Check>Pay taxes and a service fee upon import if there was no VAT collected yet (because seller does not remit VAT and/or order value is over 150 EUR) </FieldSet.Check>
+</FieldSet.Group>
 
 <Tailor.Show none={{ is_toy: 'no', ship_to: 'other' }}>
 
 ## Selling custom toys to the EU
 
-This recent Etsy article scared a lot of custom plush/doll sellers out of shipping to the EU.
+[This recent Etsy article](https://www.etsy.com/seller-handbook/article/placing-toys-in-the-eu-market-legal/1007909810764) scared a lot of custom plush/doll sellers out of shipping to the EU.
 
 It’s true that there are changes for companies selling toys to the EU, but as a custom plush or doll artist, you’re most likely not selling actual toys and you’re not affected by this change – let me explain:
 
@@ -149,7 +158,7 @@ If you sell custom plush or dolls they may LOOK like toys. It’s important you 
 
 ## Find your HS Code
 
-If you are shipping internationally, you need to find an HS Code.
+If you are shipping internationally, you need to find an HS Code (also called Customs tariff number).
 
 <LinkTo href="/blog/intl-shipping/hs-codes">View Helpful HS Codes</LinkTo>
 
@@ -228,6 +237,8 @@ For purchases exceeding EUR 150 in value, there are different rules. Etsy won’
 <Tailor.Show none={{ over_150: 'yes' }}>
 *In short: If you use Etsy, Etsy will handle the complicated part! Just use the Etsy invoice & IOSS number and you’ll be good. You can read more about that here: [New Import VAT Updates You Need to Know](https://www.etsy.com/seller-handbook/article/updated-on-22nd-june-new-import-vat/1014946249688)*
 </Tailor.Show>
+
+If you forgot to supply the VAT invoice or Etsy's IOSS number and your customer does get charged with VAT for a second time, they can contact support [here](https://help.etsy.com/hc/en-gb/requests/new?segment=selling&ticket_form_id=360000108008#issue_buy_sales_tax_vat) and get a refund on the VAT they paid to Etsy. 
 </Tailor.Show>
 
 </Tailor.Show>

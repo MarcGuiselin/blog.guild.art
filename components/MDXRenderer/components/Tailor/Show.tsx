@@ -1,14 +1,14 @@
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 import { useChoices } from './context'
 import { State } from './Provider'
 
-type Condition = {
+export type Condition = {
   if?: (get: (name: string) => string) => boolean
   none?: State
 }
 
-type Props = Condition & {
-  children: ReactNode
+export type Props = Condition & {
+  children: ReactElement
 }
 
 function useShow({ if: iff, none }: Condition) {
