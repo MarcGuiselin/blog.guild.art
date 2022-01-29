@@ -52,7 +52,10 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
       <div className="divide-y divide-gray-200 dark:divide-onyx-700">
         <Typo.Heading>
           <Typo.Title2>Latest Community Posts</Typo.Title2>
-          <Typo.Subtitle>{siteMetadata.description}</Typo.Subtitle>
+          <Typo.Subtitle>
+            Our global community of artists and makers share tips, guides and helpful tools for
+            independent artists.
+          </Typo.Subtitle>
         </Typo.Heading>
         <ul className="divide-y divide-gray-200 dark:divide-onyx-700">
           {!posts.length && 'No posts found.'}
