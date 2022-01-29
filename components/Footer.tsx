@@ -16,7 +16,7 @@ export default function Footer() {
         />
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           {`© ${new Date().getFullYear()} `}
-          <Link href="/">{siteMetadata.title}</Link>
+          <Link href="/">Guild of Artists</Link>
         </div>
       </div>
     </footer>

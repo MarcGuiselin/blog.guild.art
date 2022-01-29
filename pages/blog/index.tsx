@@ -29,7 +29,10 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <PageSEO
+        title="🤝 Community Blog - Guild Artists"
+        description="Our global community of clever artists and makers contribute tips, guides and helpful tools for independent artists!"
+      />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}

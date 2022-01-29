@@ -1,7 +1,8 @@
 const siteMetadata = {
-  title: 'The Guild of Artists',
+  title: '🤟 Building an artist-owned platform - Guild Artists',
   author: '@guildofartists',
-  description: "Let's help each other out!",
+  description:
+    'An inclusive and friendly community building a new, sustainable home for our art! 😄 No more corporate bs. Better tools for self-promotion, commissions, shipping and more.',
   language: 'en-us',
   siteUrl: 'https://guild.art',
   siteLogo: '/static/images/logo.png',
