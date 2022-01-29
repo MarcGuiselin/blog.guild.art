@@ -84,26 +84,26 @@ If you have any questions, please feel free to reach out on Twitter or Instagram
 
 ## Checklist & TLDR
 
-<FieldSet.Group none={{ ship_to: 'other' }}>
-<FieldSet.Legend>When shipping to the EU, from outside the EU, I need to:</FieldSet.Legend>
+<FieldSet.Group>
+<FieldSet.Legend>When shipping internationally I need to:</FieldSet.Legend>
 <FieldSet.Check>Find the correct HS code for the item(s) I'm shipping. <LinkTo href="/blog/intl-shipping/hs-codes" inline>More info</LinkTo></FieldSet.Check>
 <FieldSet.Check>Fill out the customs info with the correct HS code and short item description.</FieldSet.Check>
 <FieldSet.Check>Include the invoice on the outside of the parcel (in plastic sleeve).</FieldSet.Check>
 </FieldSet.Group>
 
-<FieldSet.Group none={{ etsy: 'no' }}>
+<FieldSet.Group none={{ etsy: 'no', ship_to: 'other' }}>
 <FieldSet.Legend>If the order was made through a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Legend>
 <FieldSet.Check>Include the VAT invoice on the outside of the parcel.</FieldSet.Check>
 <FieldSet.Check>Use Etsy shipping labels or send the marketplace (Etsy/other) IOSS number electronically to the shipping company. <LinkTo href="#sale-made-through-etsy" inline>More info</LinkTo></FieldSet.Check>
 </FieldSet.Group>
 
-<FieldSet.Group none={{ is_toylike: 'no' }}>
+<FieldSet.Group none={{ is_toylike: 'no', ship_to: 'other' }}>
 <FieldSet.Legend>If [shipping a custom toy-like item](#selling-custom-toys-to-the-eu), I need to:</FieldSet.Legend>
 <FieldSet.Check>Include a statement or packaging label that shows the product is not intended for children below the age of 14.</FieldSet.Check>
 <FieldSet.Check>Avoid using toy-related HS codes and customs description.</FieldSet.Check>
 </FieldSet.Group>
 
-<FieldSet.Group>
+<FieldSet.Group none={{ ship_to: 'other' }}>
 <FieldSet.Legend>My customer will then:</FieldSet.Legend>
 <FieldSet.Check>Pay taxes upon checkout if the order value is under 150 EUR and the purchase is made to a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Check>
 <FieldSet.Separator>OR</FieldSet.Separator>
