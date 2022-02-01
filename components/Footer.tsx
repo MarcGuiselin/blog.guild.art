@@ -14,6 +14,9 @@ export default function Footer() {
             twitter: siteMetadata.twitter,
           }}
         />
+        <div className="mb-4 text-sm">
+          <Link href="/privacy">Privacy Policy</Link>
+        </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           {`© ${new Date().getFullYear()} `}
           <Link href="/">Guild of Artists</Link>
