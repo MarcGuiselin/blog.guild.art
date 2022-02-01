@@ -10,6 +10,7 @@ const UmamiScript = () => {
         defer
         data-website-id={siteMetadata.analytics.umamiWebsiteId}
         src="https://umami.guild.art/umami.js" // Replace with your umami instance
+        data-do-not-track="true"
       />
     </>
   )
