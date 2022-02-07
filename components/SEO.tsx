@@ -73,6 +73,27 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
+type AuthorSEOProps = {
+  title: string
+  description: string
+  ogType?: string
+  ogImage: string
+  twImage: string
+  twitter?: string
+  twCardType?: 'summary_large_image' | 'summary'
+}
+
+export const AuthorSEO = ({ ogImage, twImage, ...rest }: AuthorSEOProps) => {
+  return (
+    <CommonSEO
+      ogImage={siteMetadata.siteUrl + ogImage}
+      twImage={siteMetadata.siteUrl + ogImage}
+      ogType="website"
+      {...rest}
+    />
+  )
+}
+
 export const TagSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner

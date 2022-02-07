@@ -1,6 +1,6 @@
 import SocialRow from '@/components/SocialRow'
 import Image from '@/components/Image'
-import { CommonSEO } from '@/components/SEO'
+import { AuthorSEO } from '@/components/SEO'
 import { ReactNode } from 'react'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 
@@ -14,7 +14,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
 
   return (
     <>
-      <CommonSEO
+      <AuthorSEO
         title={`About - ${name}`}
         description={summary || `About me - ${name}`}
         ogType="profile"
