@@ -5,7 +5,7 @@ import MDXRenderer from '@/components/MDXRenderer'
 import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
-import { PostFrontMatter } from 'types/PostFrontMatter'
+import { PostFrontMatter, Link } from 'types/PostFrontMatter'
 import { Toc } from 'types/Toc'
 
 const DEFAULT_LAYOUT = 'PostLayout'
@@ -26,15 +26,18 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps<{
   post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
   authorDetails: AuthorFrontMatter[]
-  prev?: { slug: string; title: string }
-  next?: { slug: string; title: string }
+  prev?: Link
+  next?: Link
 }> = async ({ params }) => {
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter('blog')
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
-  const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
-  const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
   const post = await getFileBySlug<PostFrontMatter>(['blog', slug])
+
+  const hasParent = !!post.frontMatter.parent?.slug
+  const prev: Link = hasParent ? null : allPosts[postIndex + 1] || null
+  const next: Link = hasParent ? null : allPosts[postIndex - 1] || null
+
   // @ts-ignore
   const authorList = post.frontMatter.authors || ['default']
   const authorPromise = authorList.map(async (author) => {

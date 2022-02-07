@@ -1,0 +1,250 @@
+---
+date: 2022-1-29
+title: International Shipping Cheatsheet
+summary: An easy to use guide to shipping items accross international borders.
+tags:
+  - Guide
+  - Shipping
+draft: false
+authors:
+  - marlou
+---
+
+Hi! I’m Marlou from [Meplushyou](https://meplushyou.com/), a small business owner from the EU, selling handmade plush.
+
+I’ve noticed a lot of (plush) artists have posted about no longer sending to the EU, which is very drastic and unnecessary in most cases!
+
+Please read this if you are a small business owner who would like to keep selling to the EU! ❤️
+
+If you have any questions, please feel free to reach out on Twitter or Instagram.
+
+> The EU (European Union) includes [this list of countries](https://european-union.europa.eu/principles-countries-history/country-profiles_en#28members). The UK is no longer part of the EU and has their own tax and import rules.
+
+<Tailor.Form>
+  <Tailor.Dropdown
+    name="ship_to"
+    label="Where are you shipping to?"
+    options={{
+      '': 'Anywhere',
+      eu: 'The EU',
+      other: 'Other countries',
+    }}
+  />
+  <Tailor.Show if={(get) => get('ship_to') == 'eu' || get('etsy') != ''}>
+    <Tailor.Dropdown
+      name="etsy"
+      label="Are you selling on Etsy/Amazon or another large platform that collects and remits VAT?"
+      options={{
+        '': "I'm not sure",
+        yes: 'Yes',
+        no: 'No',
+      }}
+    />
+  </Tailor.Show>
+  <Tailor.Show if={(get) => get('ship_to') == 'eu' || get('over_150') != ''}>
+    <Tailor.Dropdown
+      name="over_150"
+      label="Sale price is over 150 EUR?"
+      options={{
+        '': "I'm not sure",
+        yes: 'Yes',
+        no: 'No',
+      }}
+    />
+  </Tailor.Show>
+  <Tailor.Dropdown
+    name="is_toylike"
+    label="Are you shipping something that might be considered a toy? (doll, plush, figurine, etc)"
+    options={{
+      '': "I'm not sure",
+      yes: 'Yes',
+      no: 'No',
+    }}
+  />
+  <Tailor.Show if={(get) => get('is_toylike') == 'yes' || get('is_toy') != get('is_toylike')}>
+    <Tailor.Dropdown
+      name="is_toy"
+      label="Is it a toy intended for children?"
+      options={{
+        '': "I'm not sure",
+        yes: {
+          title: 'Yes',
+          description:
+            'The item I am shipping is designed or intended, whether or not exclusively, for use in play by children under 14 years of age.',
+        },
+        no: {
+          title: 'No',
+          description: 'This is not a toy',
+        },
+      }}
+    />
+  </Tailor.Show>
+</Tailor.Form>
+
+## Does my package go through customs?
+
+- If you are shipping within your own country, there are **no customs**.
+- If you are shipping from a country in the EU to another EU country, there are **no customs**. 
+- Otherwise, for all international shipments, going through **customs is required**.
+
+## Checklist & TLDR
+
+<FieldSet.Group>
+<FieldSet.Legend>If my package needs to go through customs I need to:</FieldSet.Legend>
+<FieldSet.Check>Find the correct HS code for the item(s) I'm shipping. <LinkTo href="/blog/intl-shipping/hs-codes" inline>More info</LinkTo></FieldSet.Check>
+<FieldSet.Check>Fill out the customs info with the correct HS code and short item description.</FieldSet.Check>
+<FieldSet.Check>Include the invoice on the outside of the parcel (in plastic sleeve).</FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group none={{ etsy: 'no', ship_to: 'other' }}>
+<FieldSet.Legend>If the order was made through a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Legend>
+<FieldSet.Check>Include the VAT invoice on the outside of the parcel.</FieldSet.Check>
+<FieldSet.Check>Use Etsy shipping labels or send the marketplace (Etsy/other) IOSS number electronically to the shipping company. <LinkTo href="#sale-made-through-etsy" inline>More info</LinkTo></FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group none={{ is_toylike: 'no', ship_to: 'other' }}>
+<FieldSet.Legend>If [shipping a custom toy-like item](#selling-custom-toys-to-the-eu), I need to:</FieldSet.Legend>
+<FieldSet.Check>Include a statement or packaging label that shows the product is not intended for children below the age of 14.</FieldSet.Check>
+<FieldSet.Check>Avoid using toy-related HS codes and customs description.</FieldSet.Check>
+</FieldSet.Group>
+
+<FieldSet.Group none={{ ship_to: 'other' }}>
+<FieldSet.Legend>My customer will then:</FieldSet.Legend>
+<FieldSet.Check>Pay taxes upon checkout if the order value is under 150 EUR and the purchase is made to a platform that collects and remits VAT (eg Etsy/Amazon)</FieldSet.Check>
+<FieldSet.Separator>OR</FieldSet.Separator>
+<FieldSet.Check>Pay taxes and a service fee upon import if there was no VAT collected yet (because seller does not remit VAT and/or order value is over 150 EUR) </FieldSet.Check>
+</FieldSet.Group>
+
+<Tailor.Show none={{ is_toy: 'no', ship_to: 'other' }}>
+
+## Selling custom toys to the EU
+
+[This recent Etsy article](https://www.etsy.com/seller-handbook/article/placing-toys-in-the-eu-market-legal/1007909810764) scared a lot of custom plush/doll sellers out of shipping to the EU.
+
+It’s true that there are changes for companies selling toys to the EU, but as a custom plush or doll artist, you’re most likely not selling actual toys and you’re not affected by this change – let me explain:
+
+The most prominent part of the official definition of a toy in the EU is that it is designed or intended, whether or not exclusively, for use in play by children under 14 years of age. If this is not the case for the product you sell, you’re in the clear.
+
+> If you’re making one-off or very low quantity plushies/dolls or commissions, not specifically marketed towards children, I can assure you your product does not count as a toy.
+
+### How the EU defines a toy
+
+Please note that this document has been pretty much the same since 2009. Toys sold in the EU had to comply with these rules for years now. This is why toys are safety tested and get CE markings.
+
+<Tailor.Show none={{ is_toy: 'no' }}>
+
+### I am selling custom toys meant for children
+
+If that's the case, you’ve got work to do!
+
+If you are actually selling toys to the EU, aimed at children, that recent Etsy article does apply to you. You’ll probably have to either stop selling to the EU, accept the risks or make the necessary adjustments. Since I don’t personally sell actual toys I can’t really help you with that, but I do recommend reading this document so you know what’s changing: [EU Guidelines](https://ec.europa.eu/docsroom/documents/44908)
+
+If you want to sell toys in the EU, you’ll have to also look into the following:
+
+- [CE markings European safety standard](https://ec.europa.eu/growth/sectors/toys/placing-on-eu-market)
+- [More info on toy safety in the EU](https://ec.europa.eu/docsroom/documents/15985/attachments/1/translations) (Note: toys imported to and sold in the EU have had to comply with these rules since 2009.)
+
+</Tailor.Show>
+
+</Tailor.Show>
+
+<Tailor.Show none={{ is_toylike: 'no', is_toy: 'yes', ship_to: 'other' }}>
+
+## Sell custom toy-like items to the EU
+
+If you sell custom plush or dolls they may LOOK like toys. It’s important you make sure they’re not perceived as a toy for a child. You can do this by adding the following:
+
+- Include an invoice. Your custom art piece is probably going to be a lot more expensive than a toy;
+- Include a statement or packaging label that shows the product is not intended for children below the age of 14;
+- Use a Customs description that does not include the word toy, but something else;
+- Avoid using toy-related HS codes.
+
+</Tailor.Show>
+
+## Find your HS Code
+
+If you are shipping internationally, you need to find an HS Code (also called Customs tariff number).
+
+<LinkTo href="/blog/intl-shipping/hs-codes">View Helpful HS Codes</LinkTo>
+
+> Whenever you ship something internationally the package will be handed over to Customs before entering the country. To inform the Customs inspector of what is inside the parcel (what it is and how it should be taxed), you include Harmonized System (HS) Codes
+
+<Tailor.Show  none={{ ship_to: 'other' }}>
+
+## EU Import Taxes (VAT)
+
+Consumers in the EU pay a sales tax on everything they purchase: Value Added Tax or VAT. EU Sellers collect this VAT and then remit it to the Tax and Customs Administration.
+
+European countries determine their own percentages, currently between 19% and 27% on most standard products. (You can find [all EU vat rates here](https://ec.europa.eu/taxation_customs/business/vat/telecommunications-broadcasting-electronic-services/vat-rates_en))
+
+In Europe, people are used to this VAT already being included in the price they see.
+
+Whenever EU customers purchase something from outside of the EU, they still have to pay this VAT. If the seller does not include VAT in the price and invoice, this VAT will have to be paid upon import (customs) - this will then also include an additional service fee.
+
+Bigger companies like Amazon and Etsy, will already charge this VAT percentage when a EU customer places an order. This way the EU customer knows right away what the total price will be, without any surprises later on – more on that below.
+
+<Tailor.Show none={{ over_150: 'yes' }}>
+
+### VAT changes starting July 1st 2021
+
+Previously, EU customers did not have to pay VAT on purchases of goods with a value below 22 EUR. This meant a lot of sellers declared their items with a low value to avoid taxes, which the EU deemed unfair 🤓 
+
+Because of this, starting July 1st 2021, that threshold is gone. EU customers will have to pay VAT on all purchases, no matter the value.  
+
+</Tailor.Show>
+
+### Sale from non-EU seller to an EU customer
+
+![Choice chart for non-eu to eu sellers](/static/images/blog/intl-shipping/vat-chart.png)
+
+<Tailor.Show none={{ over_150: 'yes' }}>
+
+### IOSS
+
+Starting July 1 2021, there will be a new system called Import One-Stop Shop (IOSS).
+The IOSS allows businesses selling goods to buyers in the EU to collect, declare and pay the VAT to the tax authorities, instead of making the buyer pay the VAT at the moment the goods are imported into the EU. This new system can be used for goods valued at less than EUR 150.
+
+</Tailor.Show>
+
+<Tailor.Show none={{ over_150: 'yes', etsy: 'yes' }}>
+**As a seller you don’t need to use this, so please don’t panic :D**
+
+**Allow me to me explain how it works:**
+
+If you sell through your own platform (say your own stand-alone website, not Etsy or anything like that) and you do not have an IOSS registration & do not charge VAT, you can still sell to EU customers. The customer will have to pay this VAT when the goods enter the country. In this scenario, the VAT isn’t paid to you (the seller) but straight to the Tax Authorities in the country of import. EU customers are already used to this by the way!
+
+The downside of this is that the customer will not only have to pay VAT, but also service charges to the shipping company handling the import.  
+
+> In short: If you notify the EU customer about this upfront, there shouldn’t be any surprises and you can keep shipping to the EU like you used to ❤️
+</Tailor.Show>
+
+<Tailor.Show none={{ etsy: 'no' }}>
+### Sale made through Etsy
+
+<Tailor.Show none={{ over_150: 'yes' }}>
+If you sell through Etsy, Etsy will be the one with the IOSS registration. This means they will collect and remit the VAT for you, for any goods valued at less than EUR 150.
+
+All you need to do is include the Etsy invoice and Etsy’s IOSS number to show the EU Customs that the VAT has already been paid – otherwise your customer will have to pay VAT twice (to Etsy and on import).
+
+If you use Etsy shipping labels they will automatically enter this information for you. If you don’t use Etsy’s shipping labels, you’ll need to give your shipping company Etsy’s IOSS number. *The IOSS number should be given electronically and should NOT be written on the package.*
+
+[Etsy's instructions to find etsy IOSS number](https://www.etsy.com/seller-handbook/article/updated-june-30-new-import-vat-updates/1014946249688):
+
+> You can find the IOSS number on Etsy.com under Orders & Shipping. You can also find this number on your order confirmation email. Never write this number on your packages. The shipping carrier should submit this information electronically.
+
+Make sure you attach the invoice to the outside of the parcel in a transparent envelope. The EU guidelines say: to the extent possible, show on the invoice the price paid by the buyer in EUR.
+
+For EU customers, this is the nicest way to purchase. They’ll see all costs upfront and won’t have any extra charges later on.
+</Tailor.Show>
+
+For purchases exceeding EUR 150 in value, there are different rules. Etsy won’t charge tax over this as the customer will pay the VAT (and other costs) upon import.
+
+<Tailor.Show none={{ over_150: 'yes' }}>
+*In short: If you use Etsy, Etsy will handle the complicated part! Just use the Etsy invoice & IOSS number and you’ll be good. You can read more about that here: [New Import VAT Updates You Need to Know](https://www.etsy.com/seller-handbook/article/updated-on-22nd-june-new-import-vat/1014946249688)*
+</Tailor.Show>
+
+If you forgot to supply the VAT invoice or Etsy's IOSS number and your customer does get charged with VAT for a second time, they can contact support [here](https://help.etsy.com/hc/en-gb/requests/new?segment=selling&ticket_form_id=360000108008#issue_buy_sales_tax_vat) and get a refund on the VAT they paid to Etsy. 
+</Tailor.Show>
+
+</Tailor.Show>
+

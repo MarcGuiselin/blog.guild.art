@@ -1,9 +1,20 @@
+import Link from '../../Link'
+
 type Props = {
   href: string
   back?: boolean
+  hideOnMobile?: boolean
+  inline?: boolean
 } & React.HTMLAttributes<HTMLAnchorElement>
 
-export default function ProseLinkTo({ href, back = false, children, ...rest }: Props) {
+export default function LinkTo({
+  href,
+  back = false,
+  children,
+  hideOnMobile,
+  inline,
+  ...rest
+}: Props) {
   const arrow = (
     <svg
       className={`w-7 inline align-top transition fill-primary-500 group-hover:fill-primary-600 dark:group-hover:fill-primary-400 ${
@@ -25,19 +36,24 @@ export default function ProseLinkTo({ href, back = false, children, ...rest }: P
       ></path>
     </svg>
   )
-  return (
-    <p>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href={href}
-        {...rest}
-        className="group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer"
-      >
-        {back && arrow}
-        {children}
-        {!back && arrow}
-      </a>
-    </p>
+
+  const link = (
+    <Link
+      href={href}
+      {...rest}
+      className={`group transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 !no-underline !font-bold !cursor-pointer ${
+        hideOnMobile ? 'hidden xl:inline' : 'inline'
+      }`}
+    >
+      {back && arrow}
+      {children}
+      {!back && arrow}
+    </Link>
   )
+
+  if (inline) {
+    return link
+  }
+
+  return <p>{link}</p>
 }

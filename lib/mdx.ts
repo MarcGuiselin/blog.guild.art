@@ -38,7 +38,9 @@ export function dateSortDesc(a: string, b: string) {
   return 0
 }
 
-export async function getFileBySlug<T>(slug: string | string[]) {
+export async function getFileBySlug<T extends AuthorFrontMatter | PostFrontMatter>(
+  slug: string | string[]
+) {
   const lastSlug = slug[slug.length - 1]
   const mdxPath = `${path.join(root, 'data', ...slug)}.mdx`
   const source = fs.readFileSync(mdxPath, 'utf8')
@@ -53,7 +55,7 @@ export async function getFileBySlug<T>(slug: string | string[]) {
   const toc: Toc = []
 
   // Parsing frontMatter here to pass it in as options to rehype plugin
-  const { data: frontMatter } = matter(source)
+  const { data } = matter(source)
   const { code } = await bundleMDX({
     source,
     // mdx imports can be automatically source from the components directory
@@ -74,10 +76,7 @@ export async function getFileBySlug<T>(slug: string | string[]) {
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
         rehypeAutolinkHeadings,
-        [
-          rehypeCitation,
-          { bibliography: frontMatter?.bibliography, path: path.join(root, 'data') },
-        ],
+        [rehypeCitation, { bibliography: data?.bibliography, path: path.join(root, 'data') }],
         [rehypePrismPlus, { ignoreMissing: true }],
       ]
       return options
@@ -91,16 +90,28 @@ export async function getFileBySlug<T>(slug: string | string[]) {
     },
   })
 
+  data.date = data.date ? new Date(data.date).toISOString() : ''
+
+  const frontMatter: T & {
+    readingTime: {
+      text: string
+      time: number
+      words: number
+      minutes: number
+    }
+    slug: string | null
+    fileName: string
+  } = {
+    readingTime: readingTime(code),
+    slug: lastSlug || null,
+    fileName: `${lastSlug}.mdx`,
+    ...(data as T),
+  }
+
   return {
     mdxSource: code,
     toc,
-    frontMatter: {
-      readingTime: readingTime(code),
-      slug: lastSlug || null,
-      fileName: `${lastSlug}.mdx`,
-      ...frontMatter,
-      date: frontMatter.date ? new Date(frontMatter.date).toISOString() : null,
-    },
+    frontMatter,
   }
 }
 
@@ -121,7 +132,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     const source = fs.readFileSync(file, 'utf8')
     const matterFile = matter(source)
     const frontMatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
-    if ('draft' in frontMatter && frontMatter.draft !== true) {
+    if ('draft' in frontMatter && frontMatter.draft !== true && !frontMatter.parent?.slug) {
       allFrontMatter.push({
         ...frontMatter,
         slug: formatSlug(fileName),

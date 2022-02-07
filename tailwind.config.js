@@ -53,9 +53,49 @@ module.exports = {
             'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
           },
         },
+        enter: {
+          '0%': {
+            transform: 'scale(.9)',
+            opacity: 0,
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: 1,
+          },
+        },
+        leave: {
+          '0%': {
+            transform: 'scale(1)',
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'scale(.9)',
+            opacity: 0,
+          },
+        },
+        'time-forward': {
+          '0%': {
+            transform: 'rotate(-45deg)',
+          },
+          '100%': {
+            transform: 'rotate(315deg)',
+          },
+        },
+        'time-backward': {
+          '0%': {
+            transform: 'rotate(315deg)',
+          },
+          '100%': {
+            transform: 'rotate(-45deg)',
+          },
+        },
       },
       animation: {
         'reverse-bounce': 'reverse-bounce 1s infinite',
+        enter: 'enter .2s ease-out',
+        leave: 'leave .15s ease-in forwards',
+        'time-forward': 'time-forward 1s cubic-bezier(0.33, 1, 0.68, 1) .2s infinite',
+        'time-backward': 'time-backward 1s cubic-bezier(0.33, 1, 0.68, 1) .2s infinite',
       },
       typography: (theme) => ({
         DEFAULT: {
