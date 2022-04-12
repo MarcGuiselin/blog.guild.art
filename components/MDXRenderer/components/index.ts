@@ -10,6 +10,7 @@ import LinkTo from './LinkTo'
 import * as FieldSet from './FieldSet'
 import Discord from './EmbedDiscord'
 import Youtube from './EmbedYoutube'
+import Copyright from './Copyright'
 
 export default {
   Image,
@@ -24,4 +25,5 @@ export default {
   FieldSet,
   Discord,
   Youtube,
+  Copyright,
 }
