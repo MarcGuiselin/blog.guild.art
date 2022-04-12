@@ -62,7 +62,7 @@ module.exports = withBundleAnalyzer({
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
   images: {
-    domains: ['pbs.twimg.com'],
+    domains: ['pbs.twimg.com', 'cdn.discordapp.com'],
   },
   async headers() {
     return [

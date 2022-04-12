@@ -8,6 +8,7 @@ import p from './Paragraph'
 import * as Tailor from './Tailor'
 import LinkTo from './LinkTo'
 import * as FieldSet from './FieldSet'
+import Discord from './EmbedDiscord'
 
 export default {
   Image,
@@ -20,4 +21,5 @@ export default {
   Tailor,
   LinkTo,
   FieldSet,
+  Discord,
 }
