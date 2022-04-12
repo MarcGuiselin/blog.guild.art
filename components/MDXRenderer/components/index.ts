@@ -8,6 +8,9 @@ import p from './Paragraph'
 import * as Tailor from './Tailor'
 import LinkTo from './LinkTo'
 import * as FieldSet from './FieldSet'
+import Discord from './EmbedDiscord'
+import Youtube from './EmbedYoutube'
+import Copyright from './Copyright'
 
 export default {
   Image,
@@ -20,4 +23,7 @@ export default {
   Tailor,
   LinkTo,
   FieldSet,
+  Discord,
+  Youtube,
+  Copyright,
 }

@@ -4,6 +4,12 @@ import siteMetadata from '@/data/siteMetadata'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 
+// Use vercel domain in seo for preview deployments
+const notProd = process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production'
+const siteUrl = siteMetadata.siteUrl
+const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+const baseUrl = (notProd && vercelUrl && `https://${vercelUrl}`) || siteUrl
+
 interface CommonSEOProps {
   title: string
   description: string
@@ -34,7 +40,7 @@ export const CommonSEO = ({
       <title>{title}</title>
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+      <meta property="og:url" content={`${baseUrl}${router.asPath}`} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:description" content={description} />
@@ -60,8 +66,8 @@ interface PageSEOProps {
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+  const ogImageUrl = baseUrl + siteMetadata.socialBanner
+  const twImageUrl = baseUrl + siteMetadata.socialBanner
   return (
     <CommonSEO
       title={title}
@@ -73,9 +79,25 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
+type AuthorSEOProps = {
+  title: string
+  description: string
+  ogType?: string
+  ogImage: string
+  twImage: string
+  twitter?: string
+  twCardType?: 'summary_large_image' | 'summary'
+}
+
+export const AuthorSEO = ({ ogImage, twImage, ...rest }: AuthorSEOProps) => {
+  return (
+    <CommonSEO ogImage={baseUrl + ogImage} twImage={baseUrl + ogImage} ogType="website" {...rest} />
+  )
+}
+
 export const TagSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+  const ogImageUrl = baseUrl + siteMetadata.socialBanner
+  const twImageUrl = baseUrl + siteMetadata.socialBanner
   const router = useRouter()
   return (
     <>
@@ -91,7 +113,7 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
           rel="alternate"
           type="application/rss+xml"
           title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
+          href={`${baseUrl}${router.asPath}/feed.xml`}
         />
       </Head>
     </>
@@ -125,7 +147,7 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      url: `${siteMetadata.siteUrl}${img}`,
+      url: `${baseUrl}${img}`,
     }
   })
 
@@ -161,7 +183,7 @@ export const BlogSEO = ({
       name: siteMetadata.author,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+        url: `${baseUrl}${siteMetadata.siteLogo}`,
       },
     },
     description: summary,
@@ -181,7 +203,7 @@ export const BlogSEO = ({
       <Head>
         {datePublished && <meta property="article:published_time" content={datePublished} />}
         {dateModified && <meta property="article:modified_time" content={dateModified} />}
-        <link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
+        <link rel="canonical" href={`${baseUrl}${router.asPath}`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

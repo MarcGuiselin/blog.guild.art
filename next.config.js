@@ -9,6 +9,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net;
   img-src * blob: data:;
   media-src 'none';
+  frame-src youtube-nocookie.com www.youtube-nocookie.com;
   connect-src *;
   font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;
   report-uri https://guildart.report-uri.com/r/d/csp/enforce;
@@ -62,7 +63,7 @@ module.exports = withBundleAnalyzer({
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
   images: {
-    domains: ['pbs.twimg.com'],
+    domains: ['pbs.twimg.com', 'cdn.discordapp.com'],
   },
   async headers() {
     return [
