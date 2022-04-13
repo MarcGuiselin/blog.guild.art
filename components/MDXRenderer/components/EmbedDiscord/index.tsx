@@ -52,7 +52,7 @@ export default function EmbedDiscord({
   return (
     <div className="not-prose relative rounded-lg border border-slate-300 dark:border-[#32353B] px-4 py-3 my-3 w-full bg-white dark:bg-[#36393F] hover:bg-gray-50 dark:hover:bg-[#32353B] transition group">
       <a
-        className="absolute right-3 -top-5 rounded-md bg-white dark:bg-[#36393F] p-2 border border-black border-opacity-20 group-hover:block hidden shadow-sm hover:shadow-md hover:bg-gray-50 dark:hover:bg-[#2F3136] active:shadow-sm transition"
+        className="block absolute right-[2px] top-[2px] rounded-md bg-white dark:bg-[#36393F] p-2 border border-transparent group-hover:border-black group-hover:border-opacity-20 shadow-sm hover:shadow-md hover:bg-gray-50 dark:hover:bg-[#2F3136] active:shadow-sm transition"
         href={commentUrl}
         target="_blank"
         rel="noopener noreferrer"
