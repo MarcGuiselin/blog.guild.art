@@ -24,10 +24,19 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="flex flex-col gap-4 py-10 px-2 items-center bg-slate-50 dark:bg-onyx-800 rounded-lg shadow-lg">
         <div className="max-w-min">
-          <h1 className="text-3xl font-bold font-display leading-9 tracking-wide text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 whitespace-nowrap">
-            We are Guild Artists
+          <h1 className="text-2xl font-bold font-display leading-9 tracking-wide text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 whitespace-nowrap">
+            We are The Artisans Cooperative
           </h1>
+          <h2 className="text-xl font-bold font-display leading-9 tracking-wide text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14 whitespace-nowrap">
+            Formerly the Guild of Artists
+          </h2>
           <div className="pt-8 prose lg:prose-xl dark:prose-dark prose-p:text-justify prose-a:!font-bold">
+            <p>
+              Find us on our new home:{' '}
+              <a href="https://artisans.coop/" rel="noopener noreferrer">
+                artisans.coop
+              </a>
+            </p>
             <p>
               With the help of friends and artists around the globe we’re building a cooperative
               digital platform for artists to promote and sell unique commissioned art pieces.
@@ -38,9 +47,9 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
               <a href="https://discord.com/" target="_blank" rel="noopener noreferrer">
                 Discord
               </a>
-              . Join us at{' '}
+              . Join us on{' '}
               <a href="https://join.guild.art/" target="_blank" rel="noopener noreferrer">
-                join.guild.art
+                The Artisans Cooperative Discord server
               </a>
             </p>
           </div>
